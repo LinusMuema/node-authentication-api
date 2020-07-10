@@ -1,10 +1,11 @@
-
 const express = require("express")
 const mongoose = require("mongoose")
 const app = express()
+const authRoute = require('./routes/auth')
 
 const  dbURI = "mongodb://localhost/pies"
 app.use(express.json())
+app.use('/api/auth', authRoute)
 
 
 mongoose.connect(dbURI , {useNewUrlParser: true, useUnifiedTopology: true})
