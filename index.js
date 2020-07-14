@@ -4,15 +4,21 @@ const mongoose = require("mongoose")
 const app = express()
 const authRoute = require('./routes/auth')
 
-const  dbURI = "mongodb://localhost/pies"
+const  dbURI = "mongodb://localhost/users"
 app.use(express.json())
 app.use('/api/auth', authRoute)
 
+mongoose.connect(process.env.MONGODB_URL || uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+const db = mongoose.connection;
+db.on('error', (err) => {
+    console.log(err)
+});
+db.once('open', () => {
+    console.log('db opened successfully')
+});
 
-mongoose.connect(process.env.MONGODB_URL || dbURI , {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(res => {console.log("Db started successfully");})
-    .catch(err => {console.log(err);})
-const db = mongoose.connection
 
-
-app.listen(2400, () => {console.log("Server started: 2400")})
+app.listen(process.env.PORT || 2400, () => {console.log("Server started: 2400")})
