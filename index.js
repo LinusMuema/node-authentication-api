@@ -8,7 +8,7 @@ const  dbURI = "mongodb://localhost/users"
 app.use(express.json())
 app.use('/api/auth', authRoute)
 
-mongoose.connect(process.env.MONGODB_URL || uri, {
+mongoose.connect(process.env.MONGODB_URL || dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
