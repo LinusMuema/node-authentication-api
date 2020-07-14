@@ -6,7 +6,6 @@ const authRoute = require('./routes/auth')
 
 const  dbURI = "mongodb://localhost/pies"
 app.use(express.json())
-app.use('/', (req, res) => {res.send("Hello Auth")})
 app.use('/api/auth', authRoute)
 
 
