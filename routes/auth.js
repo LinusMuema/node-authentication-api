@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 const rounds = 10
 
 const jwt = require('jsonwebtoken')
-const tokenSecret = "my-token-secret"
+const tokenSecret = process.env.TOKEN_SECRET
 
 const middleware = require('../middlewares')
 
