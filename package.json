@@ -6,7 +6,9 @@
   "scripts": {
     "prod": "node index.js"
   },
-  "keywords": [ "heroku" ],
+  "keywords": [
+    "heroku"
+  ],
   "author": "moose.dev",
   "license": "MIT",
   "dependencies": {
